@@ -21,6 +21,7 @@ android {
                 abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
                 arguments "-DANDROID_STL=c++_shared" //不加这行报错cmake dlopen failed: library "libc++_shared.so" not found，
                                                      // 也就是System.loadLibrary("xx.so")
+                version "3.18.1"
             }
         }
     }
