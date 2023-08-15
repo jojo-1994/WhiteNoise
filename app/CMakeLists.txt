@@ -65,12 +65,15 @@ MESSAGE(${TARGET_LIBS})
 
 #jni引用so文件：https://juejin.cn/post/7066453944758861837
 #此处不加绝对路径会报错，无法编译
-set(APP_PATH /Users/jiangjiaojiao/Documents/android/android-projects/WhiteNoise/app)
+#set(APP_PATH /Users/jiangjiaojiao/Documents/android/android-projects/WhiteNoise/app)
+set(APP_PATH ${PROJECT_SOURCE_DIR})
+MESSAGE('------APP_PATH-------')
+MESSAGE(${APP_PATH})
+
 add_library(oboe SHARED IMPORTED)
 set_target_properties(oboe PROPERTIES IMPORTED_LOCATION
         ${APP_PATH}/libs/${ANDROID_ABI}/liboboe.so)
 include_directories(native-lib ${APP_PATH}/src/main/head/include)
-#include_directories(native-lib ${CMAKE_SOURCE_DIR}/src/main/head/include)
 set (TARGET_LIBS ${TARGET_LIBS} oboe)
 
 #todo 理解该命令
